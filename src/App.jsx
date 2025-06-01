@@ -1,16 +1,15 @@
-import { Route, Routes } from "react-router";
-import { BrowserRouter, Router } from "react-router";
-import Signup from "./pages/Signup";
-import RealTimeValidation from "./pages/RealTimeValidation";
+import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/Home";
+import NewWay from "./pages/NewWay";
+import OldWayRealtime from "./pages/OldWayRealtime";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/realtime-validation" element={<RealTimeValidation />} />
+        <Route path="/new-way" element={<NewWay />} />
+        <Route path="/old-way" element={<OldWayRealtime />} />
       </Routes>
     </BrowserRouter>
   );
