@@ -1,1 +1,80 @@
 @import "tailwindcss";
+
+label {
+  @apply text-[0.8rem] font-medium sm:text-base;
+}
+
+.icon {
+  @apply absolute top-1/2 bottom-1/2 left-4 z-10 size-5 
+    -translate-y-1/2 sm:size-5;
+}
+
+/* ----------- (Old) Using :valid / :invalid ----------- */
+
+.input-wrapper-old {
+  @apply relative 
+    after:absolute after:top-1/2 after:right-2 after:-translate-1/2 after:text-xs
+
+    has-[input:invalid]:after:content-['❌']
+    has-[input:placeholder-shown]:after:hidden
+    has-[input:valid]:after:text-xl
+    has-[input:valid]:after:text-green-500
+    has-[input:valid]:after:content-['✔︎']
+
+    sm:after:text-sm sm:has-[input:valid]:after:text-2xl;
+}
+
+.inputbox-old {
+  @apply relative mt-1 w-full rounded-md 
+    border border-[#ccc] px-11 py-1.5 sm:px-12 sm:py-2
+
+    ring-transparent 
+    focus:ring-black focus:ring focus:outline-0 focus:border-transparent focus:shadow
+    placeholder-shown:focus:ring
+
+    valid:border-transparent valid:ring valid:!ring-green-500
+
+    invalid:ring 
+    invalid:not-placeholder-shown:border-transparent 
+    invalid:not-placeholder-shown:ring-red-400;
+}
+
+.error-message-old {
+  @apply absolute mt-0.5 hidden text-[0.8rem] text-red-600 
+    peer-[&:invalid:not(:placeholder-shown)]:block 
+    sm:text-sm;
+}
+
+/* ----------- (New) Using :user-valid / :user-invalid ----------- */
+
+.input-wrapper-new {
+  @apply relative 
+    after:absolute after:top-1/2 after:right-2 after:-translate-1/2 after:text-xs
+
+    has-[input:user-invalid]:after:content-['❌']
+    has-[input:user-valid]:after:text-xl
+    has-[input:user-valid]:after:text-green-500
+    has-[input:user-valid]:after:content-['✔︎']
+    
+    sm:after:text-sm sm:has-[input:user-valid]:after:text-2xl;
+}
+
+.inputbox-new {
+  @apply relative mt-1 w-full rounded-md 
+    border border-[#ccc] px-10 py-1.5 sm:px-12 sm:py-2
+
+    user-valid:border-transparent 
+    user-valid:ring user-valid:!ring-green-500
+
+    user-invalid:border-transparent 
+    user-invalid:ring user-invalid:!ring-red-400
+
+    focus:border-transparent focus:shadow 
+    focus:ring focus:ring-black focus:outline-0;
+}
+
+.error-message-new {
+  @apply absolute mt-0.5 hidden text-[0.78rem] text-red-600 
+    peer-user-invalid:block 
+    sm:text-sm;
+}

@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Home from "./pages/Home";
-import NewWay from "./pages/NewWay";
-import OldWayRealtime from "./pages/OldWayRealtime";
+import UserValidInvalid from "./pages/UserValidInvalid";
+import ValidInvalid from "./pages/ValidInvalid";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/new-way" element={<NewWay />} />
-        <Route path="/old-way" element={<OldWayRealtime />} />
+        <Route path="/new-way" element={<UserValidInvalid />} />
+        <Route path="/old-way" element={<ValidInvalid />} />
       </Routes>
     </BrowserRouter>
   );
